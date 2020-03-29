@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import AuthReducer from './reducer_auth';
+import Countries from './reducer_countries';
 
 const rootReducer = combineReducers({
-  authState: AuthReducer
+  countries: Countries
 });
 
 export default rootReducer;

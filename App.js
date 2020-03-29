@@ -29,6 +29,7 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 
 import reducers from './src/reducers';
+import CountriesList from './src/containers/countriesList';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
@@ -41,9 +42,9 @@ const App: () => React$Node = () => {
           <ScrollView
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
-            <View style={styles.body}>
-              
-            </View>
+            
+            <CountriesList/>
+            
           </ScrollView>
         </SafeAreaView>
       </Provider>

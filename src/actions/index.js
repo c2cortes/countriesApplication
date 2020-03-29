@@ -1,12 +1,16 @@
 import axios from 'axios';
 
-export const AUTH = 'AUTH';
+export const FETCH_COUNTRIES = 'FETCH_COUNTRIES';
+export const API_URL = 'https://restcountries.eu/rest/v2/';
 
-////////***  Auth Actions  ***/////////
+////////***  Countries Actions  ***/////////
 
-export function authAction(params){
+export function fetchCountries(name = 'united'){
+	const url = `${API_URL}name/${name}`;
+	const request = axios.get(url);
+
 	return{
-		type: AUTH,
-		payload: params
+		type: FETCH_COUNTRIES,
+		payload: request
 	}
 }
