@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
   View
 } from 'react-native';
+
+import { styles } from './Styles'
 
 import { SvgUri } from 'react-native-svg';
 import MapView from 'react-native-maps';
@@ -33,7 +34,7 @@ class CountryDetail extends Component {
           <Text style={ styles.label }>Capital / {capital}</Text>
         </View>
 
-        <View style={styles.container}>
+        <View style={styles.mapContainer}>
           <MapView  
             style={styles.map}
             region={{
@@ -59,35 +60,5 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispath => {
   return bindActionCreators({ fetchCountry }, dispath);
 }
-
-const styles = StyleSheet.create({
-
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    height: 400,
-    width: 400,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  
-  map: {
-    ...StyleSheet.absoluteFillObject,
-    marginTop: 200,
-    height: 530
-  },
-  
-  title:{
-    color: '#3a4149',
-    fontFamily: 'Heiti SC',
-    fontWeight: '600',
-    fontSize: 20,
-  },
-  label:{
-    color: '#3a4149',
-    fontFamily: 'Heiti SC',
-    fontWeight: '400',
-    fontSize: 18,
-  }
-});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CountryDetail);

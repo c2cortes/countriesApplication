@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
   TouchableOpacity,
   View
 } from 'react-native';
 
-import { Actions } from 'react-native-router-flux';
+import { styles } from './Styles'
 
-import {
-    Colors
-  } from 'react-native/Libraries/NewAppScreen';
+import { Actions } from 'react-native-router-flux';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -30,9 +27,9 @@ class CountryListItem extends Component {
   render() {
     const name = this.props.country.name;
     return (
-        <View style={styles.sectionContainer}>
+        <View style={styles.countryItemList}>
             <TouchableOpacity onPress={ () => this.pressItem() }>
-                <Text style={styles.sectionTitle}>{ name }</Text>
+                <Text style={styles.label}>{ name }</Text>
             </TouchableOpacity>
         </View>
     )
@@ -48,17 +45,5 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispath => {
   return bindActionCreators({ fetchCountry }, dispath);
 }
-
-const styles = StyleSheet.create({
-    sectionContainer: {
-      marginTop: 32,
-      paddingHorizontal: 24,
-    },
-    sectionTitle: {
-        fontSize: 14,
-        fontWeight: '600',
-        color: Colors.black,
-    }
-  });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CountryListItem);
