@@ -15,6 +15,7 @@ const App: () => React$Node = () => {
     <>
       <Provider store={createStoreWithMiddleware(reducers)}>
         <Router />
+<TestComponent />
       </Provider>
     </>
   );
